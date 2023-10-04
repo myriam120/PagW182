@@ -19,8 +19,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
-Route::get('/vista1',  [App\Http\Controllers\HomeController::class, 'index'])->name('vista1');
-Route::view('/', 'vista2')->name('apodovista2');
+// routes/web.php
+
+use App\Http\Controllers\RedirectController;
+
+Route::get('/redirect-to-welcome', [RedirectController::class, 'redirectToWelcome']);
+Route::get('/redirect-to-vista1', [RedirectController::class, 'redirectToVista1']);
+Route::view('/vista2', 'vista2')->name('apodovista2');
 Route::view('/vista3', 'vista3')->name('apodovista3');
+
 

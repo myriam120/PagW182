@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('titulo', 'Inicio')
+@section('titulo', 'Vista1')
 
 
 
