@@ -2,6 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('/redirect-to-welcome', function () {
+    return redirect()->route('welcome');
+});
+
+Route::get('/redirect-to-vista1', function () {
+    return redirect()->route('vista1');
+});
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
