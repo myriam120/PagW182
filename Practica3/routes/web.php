@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\diarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,24 @@ use Illuminate\Support\Facades\Route;
 });
 */
 
-Route::view('/', 'welcome')->name('apodoInicio');
+
+/*Route::view('/', 'welcome')->name('apodoInicio');
 Route::view('/formulario', 'formulario')->name('apodoFormulario');
-Route::view('/recuerdos', 'recuerdos')->name('apodoRecuerdos');
+Route::view('/recuerdos', 'recuerdos')->name('apodoRecuerdos');*/
 
+// Rutas individuales para controlador
 
+/*Route::get('/', [diarioController::class, 'metodoInicio'])->name('apodoInicio');
+Route::get('/formulario', [diarioController::class, 'metodoFormulario'])->name('apodoFormulario');
+Route::get('/recurdos', [diarioController::class, 'metodoRecuerdos'])->name('apodoRecuerdo');*/
 
+//Rutas agrupadas tipo controlador
+Route::controller(diarioController::class)->group(function (){
+    
+    Route::get('/', 'metodoInicio')->name('apodoInicio');
+    
+    Route::get('/formulario','metodoFormulario')->name('apodoFormulario');
+
+    Route::get('/recuerdos', 'metodoRecuerdo')->name('apodoRecuerdo');
+});
 
