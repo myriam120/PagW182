@@ -26,11 +26,13 @@ Route::view('/recuerdos', 'recuerdos')->name('apodoRecuerdos');*/
 
 // Rutas individuales para controlador
 
-/*Route::get('/', [diarioController::class, 'metodoInicio'])->name('apodoInicio');
+Route::get('/', [diarioController::class, 'metodoInicio'])->name('apodoInicio');
 Route::get('/formulario', [diarioController::class, 'metodoFormulario'])->name('apodoFormulario');
-Route::get('/recurdos', [diarioController::class, 'metodoRecuerdos'])->name('apodoRecuerdo');*/
+Route::get('/recurdos', [diarioController::class, 'metodoRecuerdos'])->name('apodoRecuerdo');
 
-//Rutas agrupadas tipo controlador
+Route::post('/guardarRecuerdo', [diarioController::class,'metodoGuardar'])->name('guardar');
+
+/*//Rutas agrupadas tipo controlador
 Route::controller(diarioController::class)->group(function (){
     
     Route::get('/', 'metodoInicio')->name('apodoInicio');
@@ -39,4 +41,4 @@ Route::controller(diarioController::class)->group(function (){
 
     Route::get('/recuerdos', 'metodoRecuerdo')->name('apodoRecuerdo');
 });
-
+*/
