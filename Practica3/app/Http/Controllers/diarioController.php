@@ -22,6 +22,12 @@ class diarioController extends Controller
 
     }
     public function metodoGuardar(Request $req){
-        return 'Se esta procesando  tu recuerdo..';
+        
+        echo"<p>";
+            echo $req->path();
+            echo $req->method();
+            echo $req->ip();
+            echo $req->url();
+        echo"</p>";
     }
 }
