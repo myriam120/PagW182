@@ -17,10 +17,14 @@ class NoticiaLiteraria extends Controller
 
     }
 
-    public function metodoguardarlibro(validadorFormRegistro $req){
+    public function metodoLogin(){
+        return view('Login');
+
+    }
+    
+    public function metodoGuardar(validadorFormRegistro $req){
         return redirect('/registro')->with('confirmacion', 'tu libro a sido guardado');
-        
-        
+
 
         /*  $validated = $req->validate([
             'txtISBN' => 'required|max:13',

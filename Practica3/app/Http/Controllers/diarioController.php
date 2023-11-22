@@ -19,7 +19,7 @@ class diarioController extends Controller
     }
 
     public function metodoRecuerdo(){
-        return vier('recuerdos');
+        return view('recuerdos');
 
 
     }

@@ -3,27 +3,23 @@
 @section('titulo', 'Registro')
 
 @section('contenido')
-@if (session()->has('confirmacion'))
-<script>
-   Swal.fire({
-    icon: 'success',
-    title: 'El libro se registró correctamente',
-    showConfirmButton: false,
-    timer: 1500
-})
-</script>
-@endif
-<div class="container mt-5 col-md-6">
-
 <h1 class="display-1 text-center text-danger mt-5"> Formulario </h1>
+<div class="container mt-5 col-md-6">
+    <div class="card text-center">
+    @if(session()->has('confirmación'))
+      <script>
+          Swal.fire({
+              icon: 'success',
+              title: 'Confirmación',
+              text: '{{ session('confirmación') }}',
+          });
+      </script>
+      @endif
 
-
-
-
-<form method="POST" action="/guardarlibro">
+      <form method="POST" action="/guardarlibro">
     @csrf
 
-<div class="mb-3">
+    <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">ISBN </label>
         <input type="text" name="txtISBN" class="form-control" value="{{old('txtISBN')}}" >
         <p class="text-danger fst-italic">{{$errors->first('txtISBN')}} </p>
@@ -49,21 +45,23 @@
         <p class="text-danger fst-italic">{{$errors->first('txtEditorial')}} </p>
     </div>
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email de Editorial</label>
-        <input type="text" name="txtEmail_de_editorial" class="form-control" value="{{old('txtEmail_de_editorial')}}" >
-        <p class="text-danger fst-italic">{{$errors->first('txtEmail_de_editorial')}} </p>
-    </div>
-    <div class="card-footer text-body-secondary">
-    <div class="d-grip grap-2">
-  <button type="submit" class="btn btn-outline-primary">Guardar Libros</button>
-</form>
-  </div>
-  <div class="card">
+                <label for="exampleFormControlInput1" class="form-label">Email editorial:</label>
+                <input type="text" name="txtEmail" class="form-control" value="{{old('txtEmail')}}">
+                <p class="text-danger fst-italic">{{$errors->first('txtEmail')}}</p>
+              </div>
+                <div class="col-auto">
+                </div>
+
+<div class="card-footer text-body-secondary">
+    <button type="submit" class="btn btn-primary mb-3">Guardar Libro</button>
+        </div>
+      </form>
+      <div class="card">
   <div class="card-header">
     Nombre  Biblioteca  Copyright  Dia  Mes Y Año
   </div>
 </div>
-</div> <!--div container-->
-
-
+</div>
+</div>
 @endsection
+    

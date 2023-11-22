@@ -10,10 +10,10 @@
           <a class="nav-link {{ request()->routeIs('apodoInicio')?'text-danger':''}}" aria-current="page" href="/">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->routeIs('apodoFormulario')?'text-danger':''}}" href="{{route('apodoFormulario')}}">Formulario</a> 
+          <a class="nav-link {{ request()->routeIs('recuerdo.create')?'text-danger':''}}" href="{{route('recuerdo.create')}}">Formulario</a> 
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->routeIs('apodoRecuerdo')?'text-warning':''}}" href="{{route('apodoRecuerdo')}}">Recuerdo</a> 
+          <a class="nav-link {{ request()->routeIs('recuerdo.index')?'text-warning':''}}" href="{{route('recuerdo.index')}}">Recuerdo</a> 
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NoticiaLiteraria;
+use App\Http\Requests\ProductoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/', [NoticiaLiteraria::class, 'metodoPrincipal'])->name('apodoPrincipal');
 Route::get('/registro', [NoticiaLiteraria::class, 'metodoRegistro'])->name('apodoRegistro');
-Route::post('/guardarlibro', [NoticiaLiteraria::class, 'metodoguardarlibro'])->name('guardarlibro');
+Route::post('/guardarlibro', [NoticiaLiteraria::class, 'metodoGuardar'])->name('Guardar');
+Route::get('/Login', [NoticiaLiteraria::class, 'metodoLogin'])->name('apodoLogin');
+
+Route::get('/productos', [ProductoController::class, 'index'])->name('apodoProducto');
+Route::get('/productos/{id}/editar', [ProductoController::class, 'edit']);
+Route::put('/productos/{id}', [ProductoController::class, 'update']);

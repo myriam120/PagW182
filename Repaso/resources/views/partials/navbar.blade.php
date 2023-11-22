@@ -10,7 +10,10 @@
           <a class="nav-link {{ request()->routeIs('apodoPrincipal')?'text-danger':''}}" aria-current="page" href="/">Principal</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->routeIs('apodoRegistro')?'text-danger':''}}" href="{{route('apodoRegistro')}}">Registro</a> 
+          <a class="nav-link {{ request()->routeIs('apodoLogin')?'text-danger':''}}" href="{{route('apodoLogin')}}">login</a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->routeIs('apodoProducto')?'text-danger':''}}" aria-current="page" href="/">Productos</a>
         </li>
         <li class="nav-item dropdown">
           
