@@ -11,6 +11,10 @@ Route::post('/recuerdo', [ControllerCRUDD::class,'store'])->name('recuerdo.store
 
 Route::get('/recuerdo', [ControllerCRUDD::class, 'index'])->name('recuerdo.index');
 
+Route::post('/recuerdo/{id}/confirm', [ControllerCRUDD::class,'update'])->name('recuerdo.update');
+
+Route::delete('recuerdo/{id}', [ControllerCRUDD::class, 'destroy'])->name('recuerdo.destroy');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

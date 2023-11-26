@@ -4,7 +4,7 @@
 
 @section('contenido')
 
-@include('partials.modal')
+
 
 <h1 class="display-1 text-center text-danger mt-5"> RECUERDOS </h1>
 
@@ -17,12 +17,15 @@
         <h5 class="card-title fw-semibold">{{$recuerdo->titulo}} </h5>
         <p class="card-text fst-italic">{{$recuerdo->fecha}}</p>
         <p class="card-text fst-lighter">{{$recuerdo->recuerdo}}</p>
-        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editar">
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editar{{$recuerdo->id}}">
             Editar
         </button>
-        <a href="#" class="btn btn-danger">Borrar</a>
+        <button href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminarRecuerdo{{ $recuerdo->id }}">
+            Eliminar
+        </button>
     </div>
     </div>
+    @include('partials.modal')
 
 @endforeach
 

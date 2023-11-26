@@ -63,9 +63,14 @@ class ControllerCRUDD extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(validadorFormDiario $request, string $id)
     {
-        //
+        DB::table('tb_recuerdos')->where('id', $id)->update([
+            "titulo"=> $request->input('txtTitulo'),
+            "recuerdo"=> $request->input('txtRecuerdo'),
+            "updated_at"=> Carbon::now(),
+        ]);
+        return redirect('/recuerdo/create')->with('confirmacion', 'Recuerdo modificado');
     }
 
     /**
@@ -73,6 +78,9 @@ class ControllerCRUDD extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('tb_recuerdos')->where('id', $id)->delete();
+        $mensajeConfirmacion = 'Recuerdo eliminado correctamente';
+
+    return redirect('/recuerdo')->with('confirmacion', $mensajeConfirmacion);
     }
 }
